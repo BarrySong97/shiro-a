@@ -40,7 +40,7 @@ export const PostBottomBarAction: Component = () => {
       <LikeButton />
       <ShareButton />
       <SubscribeButton />
-      <AsideDonateButton />
+      {/* <AsideDonateButton /> */}
     </div>
   )
 }
@@ -51,7 +51,7 @@ export const PostActionAside: Component = ({ className }) => {
       <LikeButton />
       <ShareButton />
       <SubscribeButton />
-      <AsideDonateButton />
+      {/* <AsideDonateButton /> */}
       <PostAsideCommentButton />
     </ActionAsideContainer>
   )

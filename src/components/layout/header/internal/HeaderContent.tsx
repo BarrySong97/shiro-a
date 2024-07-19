@@ -49,7 +49,7 @@ const AccessibleMenu: Component = () => {
             initial={{ y: -20 }}
             animate={{ y: 0 }}
             exit={{ y: -20, opacity: 0 }}
-            className="pointer-events-none fixed inset-x-0 top-12 z-10 mr-[var(--removed-body-scroll-bar-size)] flex justify-center"
+            className="pointer-events-none fixed inset-x-0 top-5 z-10 mr-[var(--removed-body-scroll-bar-size)] flex justify-center"
           >
             <ForDesktop />
           </m.div>
@@ -128,6 +128,8 @@ const ForDesktop: Component<{
               return item.path === pathname || pathname.slice(1) === item.path
             }) ?? -1
 
+          // const subItemActive = -1
+
           return (
             <HeaderMenuItem
               iconLayout={animatedIcon}
@@ -158,7 +160,7 @@ const HeaderMenuItem = memo<{
   const href = section.path
 
   return (
-    <MenuPopover subMenu={section.subMenu} key={href}>
+    <MenuPopover subMenu={[]} key={href}>
       <AnimatedItem
         href={href}
         isActive={isActive}

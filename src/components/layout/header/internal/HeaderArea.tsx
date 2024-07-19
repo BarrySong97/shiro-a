@@ -1,5 +1,8 @@
 'use client'
 
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { OnlyDesktop } from '~/components/ui/viewport'
 import { clsxm } from '~/lib/helper'
 
@@ -30,11 +33,27 @@ export const HeaderLeftButtonArea: Component = ({ children }) => {
 }
 
 export const HeaderCenterArea: Component = ({ children }) => {
+  const pathname = usePathname()
   return (
     <OnlyDesktop>
       <div className="flex min-w-0 grow">
-        <div className="relative flex grow items-center justify-end">
-          {children}
+        <div
+          className={clsxm(
+            'relative flex grow items-center',
+            pathname === '/' ? 'justify-end' : 'justify-between',
+          )}
+        >
+          {pathname !== '/' ? (
+            <Link
+              href={'/'}
+              className={clsxm('z-50 text-2xl font-medium italic', {
+                'text-white': pathname === '/',
+              })}
+            >
+              BarrySong4Real
+            </Link>
+          ) : null}
+          <div>{children}</div>
         </div>
       </div>
     </OnlyDesktop>

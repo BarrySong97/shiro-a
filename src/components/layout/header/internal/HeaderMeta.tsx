@@ -39,25 +39,17 @@ export const HeaderMeta = () => {
           data-testid="header-meta"
           {...animationProps}
         >
-          <div className="flex min-w-0 shrink grow flex-col">
+          <div className="flex min-w-0 shrink grow flex-col"></div>
+
+          <div className="hidden min-w-0 shrink-[5] flex-col text-right leading-5 lg:flex">
             <small className="min-w-0 truncate">
               <span className="text-gray-600/60 dark:text-gray-300/60">
                 {description}
               </span>
             </small>
-            <h2 className="min-w-0 truncate text-[1.2rem] font-medium leading-normal">
+            <h2 className="min-w-0 truncate text-[1rem] font-medium leading-normal">
               {title}
             </h2>
-          </div>
-
-          <div className="hidden min-w-0 shrink-[5] flex-col text-right leading-5 lg:flex">
-            <small className="min-w-0 truncate whitespace-pre text-gray-600/60 dark:text-gray-300/60">
-              {' '}
-              {slug}
-            </small>
-            <span className="font-medium text-gray-600 dark:text-gray-300">
-              {seoTitle}
-            </span>
           </div>
         </m.div>
       )}

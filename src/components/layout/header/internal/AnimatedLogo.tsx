@@ -52,7 +52,7 @@ const TapableLogo = () => {
   )
   // return <Logo onClick={fn} className="cursor-pointer" />
   return (
-    <button onClick={fn}>
+    <button onClick={fn} className="z-50">
       <SiteOwnerAvatar className="cursor-pointer" />
       <span className="sr-only">Owner Avatar</span>
     </button>

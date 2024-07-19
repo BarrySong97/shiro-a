@@ -153,13 +153,13 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <ul className="mt-4 mx-2 !flex flex-wrap items-center gap-4 lg:mx-auto lg:justify-start">
+          <ul className="mx-2 mt-4 !flex flex-wrap items-center gap-4 lg:mx-auto lg:justify-start">
             {socials.map(({ type, id }, index) => {
               if (!isSupportIcon(type)) return null
               return (
                 <BottomToUpTransitionView
                   key={type}
-                  delay={index * 100 + titleAnimateD + 500}
+                  delay={index * 100 + 500}
                   className="inline-block"
                   as="li"
                 >

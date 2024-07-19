@@ -10,7 +10,7 @@ export const PageActionAside: Component = ({ className }) => {
   return (
     <ActionAsideContainer className={className}>
       <PageAsideCommentButton />
-      <AsideDonateButton />
+      {/* <AsideDonateButton /> */}
     </ActionAsideContainer>
   )
 }

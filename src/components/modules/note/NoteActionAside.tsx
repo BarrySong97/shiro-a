@@ -40,7 +40,7 @@ export const NoteBottomBarAction: Component = () => {
       <LikeButton />
       <ShareButton />
       <SubscribeButton />
-      <AsideDonateButton />
+      {/* <AsideDonateButton /> */}
     </div>
   )
 }
@@ -52,7 +52,7 @@ export const NoteActionAside: Component = ({ className }) => {
       <ShareButton />
       <SubscribeButton />
       <NoteAsideCommentButton />
-      <AsideDonateButton />
+      {/* <AsideDonateButton /> */}
     </ActionAsideContainer>
   )
 }

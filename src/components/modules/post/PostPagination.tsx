@@ -9,7 +9,7 @@ const className =
 
 export const PostPagination: FC<{ pagination: Pager }> = ({ pagination }) => {
   return (
-    <section className="mt-4 flex justify-between">
+    <section className="mt-4 mb-32 flex justify-between">
       {pagination.hasPrevPage ? (
         <MotionButtonBase tabIndex={-1} className={className}>
           <Link href={`/posts?page=${pagination.currentPage - 1}`}>上一页</Link>
