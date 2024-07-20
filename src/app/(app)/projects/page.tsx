@@ -2,6 +2,8 @@
 
 import { useQuery } from '@tanstack/react-query'
 
+import { ProjectModel } from '@mx-space/api-client'
+
 import { GitHubBrandIcon } from '~/components/icons/platform/GitHubBrandIcon'
 import { ProjectList } from '~/components/modules/project/ProjectList'
 import { NothingFound } from '~/components/modules/shared/NothingFound'
@@ -31,22 +33,9 @@ export default function Page() {
   if (!data) return <NothingFound />
 
   return (
-    <div className="mt-10">
+    <div className="mb-32 mt-10">
       <header className="prose my-12 flex items-center">
-        <h1 className="flex items-center">
-          项目{' '}
-          {githubUsername && (
-            <a
-              href={`https://github.com/${githubUsername}`}
-              className="ml-2 inline-flex !text-inherit"
-              target="_blank"
-              aria-label="view on GitHub"
-              rel="noopener noreferrer"
-            >
-              <GitHubBrandIcon />
-            </a>
-          )}
-        </h1>
+        <h1 className="flex items-center">项目</h1>
       </header>
       <main>
         <BottomToUpTransitionView>

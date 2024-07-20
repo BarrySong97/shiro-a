@@ -7,6 +7,7 @@ import { OnlyDesktop } from '~/components/ui/viewport'
 import { clsxm } from '~/lib/helper'
 
 import styles from './grid.module.css'
+import Signature from './Signature'
 
 export const HeaderLogoArea: Component = ({ children }) => {
   return (
@@ -50,7 +51,7 @@ export const HeaderCenterArea: Component = ({ children }) => {
                 'text-white': pathname === '/',
               })}
             >
-              BarrySong4Real
+              <Signature />
             </Link>
           ) : null}
           <div>{children}</div>

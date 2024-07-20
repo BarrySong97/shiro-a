@@ -9,3 +9,19 @@
 
 @import './theme.css';
 @import './webfont.css';
+
+.signature {
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 4000;
+    animation: dash 5s linear alternate infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+
+    from {
+        stroke-dashoffset: 4000;
+    }
+}
