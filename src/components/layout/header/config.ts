@@ -42,9 +42,9 @@ export const headerMenuConfig: IHeaderMenu[] = [
     icon: h(MdiFlask),
     path: '/projects',
   },
-  {
-    title: '友链',
-    icon: h(FaSolidUserFriends),
-    path: '/friends',
-  },
+  // {
+  //   title: '友链',
+  //   icon: h(FaSolidUserFriends),
+  //   path: '/friends',
+  // },
 ]

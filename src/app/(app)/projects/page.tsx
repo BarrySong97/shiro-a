@@ -33,7 +33,7 @@ export default function Page() {
   if (!data) return <NothingFound />
 
   return (
-    <div className="mb-32 mt-10">
+    <div className="mt-10 pb-32">
       <header className="prose my-12 flex items-center">
         <h1 className="flex items-center">项目</h1>
       </header>

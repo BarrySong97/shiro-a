@@ -32,7 +32,7 @@ export const HeaderDrawerContent = () => {
               </span>
             </LinkInternal>
 
-            {section.subMenu && (
+            {/* {section.subMenu && (
               <ul className="my-2 grid grid-cols-2 gap-2">
                 {section.subMenu.map((sub) => {
                   return (
@@ -47,7 +47,7 @@ export const HeaderDrawerContent = () => {
                   )
                 })}
               </ul>
-            )}
+            )} */}
           </m.section>
         )
       })}

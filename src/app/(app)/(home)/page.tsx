@@ -119,7 +119,7 @@ const Hero = () => {
       return acc + (cur.text?.length || 0)
     }, 0) * 50
   return (
-    <div className="mt-20 flex min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
+    <div className="mt-12 flex min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
       {/* <div
         className="h-full"
         style={{
@@ -128,7 +128,11 @@ const Hero = () => {
           backgroundPosition: 'center',
         }}
       ></div> */}
-      <img src="/siteowner.jpg" alt="" className="h-full object-cover" />
+      <img
+        src="/siteowner.jpg"
+        alt=""
+        className="hidden h-full object-cover lg:block"
+      />
       <div className="flex flex-1 items-center justify-center">
         <m.div
           className="group relative text-center leading-[4] lg:text-left"
@@ -137,8 +141,27 @@ const Hero = () => {
           transition={softBouncePreset}
         >
           <div className="flex flex-col gap-4">
-            <h1 className="mx-2 text-6xl font-medium">
-              <SparklesText text="BarrySong4Real" />
+            <div
+              className={clsx(
+                'lg:size-[300px]',
+                'size-[100px]',
+                'self-center',
+                'block lg:hidden',
+              )}
+            >
+              <Image
+                height={300}
+                width={300}
+                src={'/siteowner.jpg'}
+                alt="Site Owner Avatar"
+                className={clsxm(
+                  'aspect-square rounded-full border border-slate-200 object-cover dark:border-neutral-800',
+                  'w-full',
+                )}
+              />
+            </div>
+            <h1 className="mx-2 text-5xl font-medium lg:text-6xl">
+              <SparklesText text="BarrySong4Real" className="text-left" />
             </h1>
             <div className="flex gap-4">
               <h1 className="text-4xl font-light">全栈工程师</h1>
@@ -153,7 +176,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <ul className="mx-2 mt-4 !flex flex-wrap items-center gap-4 lg:mx-auto lg:justify-start">
+          <ul className="mx-2 mt-4 !flex flex-wrap items-center justify-center gap-4 lg:mx-auto lg:justify-start">
             {socials.map(({ type, id }, index) => {
               if (!isSupportIcon(type)) return null
               return (

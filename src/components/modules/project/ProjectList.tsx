@@ -26,7 +26,7 @@ export type InnerProject = {
 export const ProjectList: FC<{ projects: Project[] }> = (props) => {
   return (
     <section key="list" className="text-center">
-      <div className="grid min-w-0 grid-cols-2 gap-12 lg:grid-cols-3">
+      <div className="grid min-w-0 grid-cols-1 gap-12 lg:grid-cols-3">
         {props.projects.map((project) => {
           const realMeataData: InnerProject = JSON.parse(
             project.description ?? '',
@@ -59,21 +59,15 @@ export const ProjectList: FC<{ projects: Project[] }> = (props) => {
           }
 
           return (
-            <Link
-              href={routeBuilder(Routes.Project, { id: project.id })}
-              key={project.id}
-              className=""
-            >
-              <ProjectCard
-                title={project.name}
-                video={project.previewUrl}
-                links={links}
-                description={realMeataData.description}
-                tech={realMeataData.tech}
-                start={realMeataData.start}
-                end={realMeataData.end}
-              />
-            </Link>
+            <ProjectCard
+              title={project.name}
+              video={project.previewUrl}
+              links={links}
+              description={realMeataData.description}
+              tech={realMeataData.tech}
+              start={realMeataData.start}
+              end={realMeataData.end}
+            />
           )
         })}
       </div>
