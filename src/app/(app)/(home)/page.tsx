@@ -22,10 +22,7 @@ import { isSupportIcon, SocialIcon } from '~/components/modules/home/SocialIcon'
 import { usePresentSubscribeModal } from '~/components/modules/subscribe'
 import { StyledButton } from '~/components/ui/button'
 import { NumberSmoothTransition } from '~/components/ui/number-transition/NumberSmoothTransition'
-import {
-  BottomToUpTransitionView,
-  TextUpTransitionView,
-} from '~/components/ui/transition'
+import { BottomToUpTransitionView } from '~/components/ui/transition'
 import { microReboundPreset, softBouncePreset } from '~/constants/spring'
 import { clsxm } from '~/lib/helper'
 import { noopObj } from '~/lib/noop'
@@ -36,9 +33,14 @@ import {
   useAppConfigSelector,
 } from '~/providers/root/aggregation-data-provider'
 
+import About from './components/about'
 import { ActivityPostList } from './components/ActivityPostList'
 import { ActivityRecent } from './components/ActivityRecent'
+import Eduacation from './components/Education'
 import SparklesText from './components/SparkText'
+import Stack from './components/Stack'
+import Work from './components/Work'
+import { useHomeQueryData } from './query'
 
 export default function Home() {
   return (
@@ -91,6 +93,7 @@ const TwoColumnLayout = ({
 }
 
 const Hero = () => {
+  const data = useHomeQueryData()
   const stack = ['React', 'Nestjs', 'Fastapi']
   const socials = [
     {
@@ -120,78 +123,103 @@ const Hero = () => {
     }, 0) * 50
   return (
     <div className="mt-12 flex min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
-      {/* <div
-        className="h-full"
-        style={{
-          backgroundImage: 'url(/siteowner.jpg)',
-          backgroundSize: '35%',
-          backgroundPosition: 'center',
-        }}
-      ></div> */}
       <img
         src="/siteowner.jpg"
         alt=""
         className="hidden h-full object-cover lg:block"
       />
-      <div className="flex flex-1 items-center justify-center">
-        <m.div
-          className="group relative text-center leading-[4] lg:text-left"
-          initial={{ opacity: 0.0001, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={softBouncePreset}
-        >
-          <div className="flex flex-col gap-4">
-            <div
-              className={clsx(
-                'lg:size-[300px]',
-                'size-[100px]',
-                'self-center',
-                'block lg:hidden',
-              )}
-            >
-              <Image
-                height={300}
-                width={300}
-                src={'/siteowner.jpg'}
-                alt="Site Owner Avatar"
-                className={clsxm(
-                  'aspect-square rounded-full border border-slate-200 object-cover dark:border-neutral-800',
-                  'w-full',
+      <div className="no-scrollbar flex-1 overflow-auto scroll-smooth">
+        <div className="flex h-screen items-center justify-center">
+          <m.div
+            className="group relative text-center leading-[4] lg:text-left"
+            variants={{
+              hidden: { opacity: 0.0001, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            whileInView={'visible'}
+            transition={softBouncePreset}
+          >
+            <div className="flex flex-col gap-4">
+              <div
+                className={clsx(
+                  'lg:size-[300px]',
+                  'size-[100px]',
+                  'self-center',
+                  'block lg:hidden',
                 )}
-              />
-            </div>
-            <h1 className="mx-2 text-5xl font-medium lg:text-6xl">
-              <SparklesText text="BarrySong4Real" className="text-left" />
-            </h1>
-            <div className="flex gap-4">
-              <h1 className="text-4xl font-light">全栈工程师</h1>
-              <div className="flex gap-1 self-end">
-                {stack.map((v, index) => {
-                  return (
-                    <div key={v} className="text-lg">
-                      {v} {index != stack.length - 1 && '·'}
-                    </div>
-                  )
-                })}
+              >
+                <Image
+                  height={300}
+                  width={300}
+                  src={'/siteowner.jpg'}
+                  alt="Site Owner Avatar"
+                  className={clsxm(
+                    'aspect-square rounded-full border border-slate-200 object-cover dark:border-neutral-800',
+                    'w-full',
+                  )}
+                />
+              </div>
+              <h1 className="mx-2 text-5xl font-medium lg:text-6xl">
+                <SparklesText text="BarrySong4Real" className="text-left" />
+              </h1>
+              <div className="flex gap-4">
+                <h1 className="text-4xl font-light">全栈工程师</h1>
+                <div className="flex gap-1 self-end">
+                  {stack.map((v, index) => {
+                    return (
+                      <div key={v} className="text-lg">
+                        {v} {index != stack.length - 1 && '·'}
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             </div>
-          </div>
-          <ul className="mx-2 mt-4 !flex flex-wrap items-center justify-center gap-4 lg:mx-auto lg:justify-start">
-            {socials.map(({ type, id }, index) => {
-              if (!isSupportIcon(type)) return null
-              return (
-                <BottomToUpTransitionView
-                  key={type}
-                  delay={index * 100 + 500}
-                  className="inline-block"
-                  as="li"
-                >
-                  <SocialIcon id={id} type={type} />
-                </BottomToUpTransitionView>
-              )
-            })}
-          </ul>
-        </m.div>
+            <ul className="mx-2 mt-4 !flex flex-wrap items-center justify-center gap-4 lg:mx-auto lg:justify-start">
+              {socials.map(({ type, id }, index) => {
+                if (!isSupportIcon(type)) return null
+                return (
+                  <BottomToUpTransitionView
+                    key={type}
+                    delay={index * 100 + 500}
+                    className="inline-block"
+                    as="li"
+                  >
+                    <SocialIcon id={id} type={type} />
+                  </BottomToUpTransitionView>
+                )
+              })}
+            </ul>
+            <a href="#aboutme">
+              <button
+                type="button"
+                className="rounded-md bg-indigo-50 px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100"
+              >
+                关于我
+              </button>
+            </a>
+          </m.div>
+        </div>
+        <div className="flex h-screen center" id="aboutme">
+          <m.div
+            className="group relative mx-auto space-y-8 text-center leading-[4] lg:text-left"
+            variants={{
+              hidden: { opacity: 0.0001, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            whileInView={'visible'}
+            transition={{
+              ...softBouncePreset,
+            }}
+          >
+            <About data={data.resume.about} />
+            <Stack data={data.resume.stack} />
+            <Work data={data.resume.work} />
+            <Eduacation data={data.resume.education} />
+          </m.div>
+        </div>
       </div>
       {/* <TwoColumnLayout leftContainerClassName="mt-[120px] lg:mt-0 h-[15rem] lg:h-1/2">
         <>

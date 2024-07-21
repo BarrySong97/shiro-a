@@ -11,16 +11,23 @@ import { queryKey } from './query'
 export const dynamic = 'force-dynamic'
 export const revalidate = 3600
 export default definePrerenderPage()({
-  fetcher() {
+  async fetcher() {
     const queryClient = getQueryClient()
-    return queryClient
+    const res = queryClient
       .fetchQuery({
         queryKey,
         queryFn: async () => {
-          return (await apiClient.aggregate.getTop(5)).$serialized
+          const res = await apiClient.snippet.getByReferenceAndName(
+            'resume',
+            'resume',
+          )
+
+          return { resume: res.$serialized }
         },
       })
       .catch(requestErrorHandler)
+
+    return res
   },
   async Component(props) {
     const queryClient = getQueryClient()

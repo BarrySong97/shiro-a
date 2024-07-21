@@ -11,9 +11,9 @@
 @import './webfont.css';
 
 .signature {
-    stroke-dasharray: 4000;
-    stroke-dashoffset: 4000;
-    animation: dash 5s linear alternate infinite;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: dash 15s linear alternate infinite;
 }
 
 @keyframes dash {
@@ -22,6 +22,6 @@
     }
 
     from {
-        stroke-dashoffset: 4000;
+        stroke-dashoffset: 2000;
     }
 }
