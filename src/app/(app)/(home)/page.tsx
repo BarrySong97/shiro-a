@@ -328,7 +328,8 @@ const ActivityScreen = () => {
         rightContainerClassName="block lg:flex [&>div]:w-full pr-4"
         leftContainerClassName="[&>div]:w-full"
       >
-        <ActivityPostList />
+        {/* <ActivityPostList /> */}
+        <div></div>
         <ErrorBoundary>
           <ActivityRecent />
         </ErrorBoundary>

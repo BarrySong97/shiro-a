@@ -23,6 +23,7 @@ const Eduacation: FC<EduacationProps> = ({ data }) => {
             <ResumeCard
               key={education.school}
               href={education.href}
+              location=""
               logoUrl={education.logoUrl}
               altText={education.school}
               title={education.school}
