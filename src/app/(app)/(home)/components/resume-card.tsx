@@ -22,12 +22,14 @@ interface ResumeCardProps {
   href?: string
   badges?: readonly string[]
   period: string
+  location: string
   description?: string
 }
 export const ResumeCard = ({
   logoUrl,
   altText,
   title,
+  location,
   subtitle,
   href,
   badges,
@@ -62,7 +64,7 @@ export const ResumeCard = ({
           </Avatar>
         </div>
         <div className="group ml-4 flex-grow flex-col items-center">
-          <CardHeader>
+          <CardHeader className="justify-between">
             <div className="flex items-center justify-between gap-x-2 text-base">
               <h3 className="inline-flex items-center justify-center text-xs font-semibold leading-none sm:text-sm">
                 {title}
@@ -90,9 +92,13 @@ export const ResumeCard = ({
                 {period}
               </div>
             </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
+            {subtitle && (
+              <div className="text-left font-sans text-xs">
+                {location} {!location ? '' : '·'} {subtitle}
+              </div>
+            )}
           </CardHeader>
-          <div className="lg:max-w-[500px]">
+          <div className="text-left lg:max-w-[500px]">
             {description && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}

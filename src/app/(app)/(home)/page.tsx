@@ -7,6 +7,7 @@ import { m } from 'framer-motion'
 import Image from 'next/image'
 import type React from 'react'
 
+import { useIsMobile } from '~/atoms/hooks'
 import { ErrorBoundary } from '~/components/common/ErrorBoundary'
 import {
   FaSolidComments,
@@ -133,6 +134,7 @@ const Hero = () => {
     title.template.reduce((acc, cur) => {
       return acc + (cur.text?.length || 0)
     }, 0) * 50
+  const isMobile = useIsMobile()
   return (
     <div className="mt-12 flex min-w-0 max-w-screen overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
       <img
@@ -141,7 +143,7 @@ const Hero = () => {
         className="hidden h-full object-cover lg:block"
       />
       <div className="no-scrollbar flex-1 overflow-auto scroll-smooth">
-        <div className="flex h-screen items-center justify-center">
+        <div className="flex h-[calc(100vh-120px)] items-center justify-center lg:h-screen">
           <m.div
             className="group relative text-center leading-[4] lg:text-left"
             variants={{
@@ -213,9 +215,12 @@ const Hero = () => {
             </a>
           </m.div>
         </div>
-        <div className="flex h-screen center" id="aboutme">
+        <div
+          className="mt-32 flex min-h-screen center lg:mt-0"
+          id={isMobile ? 'nothing' : 'aboutme'}
+        >
           <m.div
-            className="group relative mx-auto space-y-8 text-center leading-[4] lg:text-left"
+            className="group relative mx-auto mb-32 space-y-8 text-center leading-[4] lg:mb-0 lg:text-left"
             variants={{
               hidden: { opacity: 0.0001, y: 50 },
               visible: { opacity: 1, y: 0 },
@@ -226,6 +231,9 @@ const Hero = () => {
               ...softBouncePreset,
             }}
           >
+            {isMobile ? (
+              <h2 className="h-32 w-1 lg:h-0 lg:w-0" id="aboutme"></h2>
+            ) : null}
             <About data={data.resume.about} />
             <Stack data={data.resume.stack} />
             <Work data={data.resume.work} />

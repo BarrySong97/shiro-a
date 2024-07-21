@@ -85,7 +85,12 @@ const WechatButton = ({ children }: { children: ReactNode }) => {
           content={DonateContent}
           open={sheetOpen}
           dismissible
-          onOpenChange={setSheetOpen}
+          onOpenChange={(v) => {
+            if (!v) {
+              setOverlayShow(false)
+            }
+            setSheetOpen(v)
+          }}
         />
       )}
     </>
@@ -93,12 +98,14 @@ const WechatButton = ({ children }: { children: ReactNode }) => {
 }
 const DonateContent = () => {
   const donate = useAppConfigSelector((config) => config.module?.donate)
+  const isMobile = useIsMobile()
 
   return (
     <>
       <div className="flex flex-wrap gap-4 overflow-auto center">
+        {isMobile ? <div>微信公众号</div> : null}
         {[
-          'https://barrysong4real.cc/public/wechat_blog.png',
+          `https://barrysong4real.cc/public/wechat_blog${!isMobile ? '.png' : '_mobile.jpg'}`,
           'https://barrysong4real.cc/public/wechat.jpg',
         ].map((src) => (
           <m.img

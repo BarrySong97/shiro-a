@@ -71,6 +71,9 @@ export type Work = {
    * The title of the job position
    */
   title: string
+  start: string
+  end: string
+  description: string
 }
 
 export const useHomeQueryData = () => {
