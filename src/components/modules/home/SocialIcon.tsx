@@ -2,9 +2,11 @@
 import { memo, useMemo } from 'react'
 import type { ReactNode } from 'react'
 
+import { WechatDialog } from '~/app/(app)/(home)/components/WechatDialog'
 import { BilibiliIcon } from '~/components/icons/platform/BilibiliIcon'
 import { BlueskyIcon } from '~/components/icons/platform/BlueskyIcon'
 import { NeteaseCloudMusicIcon } from '~/components/icons/platform/NeteaseIcon'
+import { SimpleIconsXiaohongshu } from '~/components/icons/platform/Xiaohongshu'
 import { XIcon } from '~/components/icons/platform/XIcon'
 import { MotionButtonBase } from '~/components/ui/button'
 import { FloatPopover } from '~/components/ui/float-popover'
@@ -91,6 +93,12 @@ const iconSet: Record<
     '#7289DA',
     (id) => `https://discord.gg/${id}`,
   ],
+  xiaohongshu: [
+    '小红书',
+    <SimpleIconsXiaohongshu />,
+    '#FF2442',
+    (id) => `https://www.xiaohongshu.com/user/profile/${id}`,
+  ],
   bluesky: [
     'Bluesky',
     <BlueskyIcon />,
@@ -122,14 +130,18 @@ export const SocialIcon = memo((props: SocialIconProps) => {
             background: iconBg,
           }}
         >
-          <a
-            target="_blank"
-            href={href}
-            className="!flex center"
-            rel="noreferrer"
-          >
-            {Icon}
-          </a>
+          {type === 'wechat' ? (
+            <WechatDialog>{Icon}</WechatDialog>
+          ) : (
+            <a
+              target="_blank"
+              href={href}
+              className="!flex center"
+              rel="noreferrer"
+            >
+              {Icon}
+            </a>
+          )}
         </MotionButtonBase>
       }
     >

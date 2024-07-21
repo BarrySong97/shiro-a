@@ -105,7 +105,19 @@ const Hero = () => {
       id: 'BarrySong97',
     },
     {
+      type: 'xiaohongshu',
+      id: '6404c6b30000000029017fce',
+    },
+    {
       type: 'bilibili',
+      id: '868586',
+    },
+    {
+      type: 'mail',
+      id: '524000659@qq.com',
+    },
+    {
+      type: 'wechat',
       id: '868586',
     },
   ]
