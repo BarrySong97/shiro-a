@@ -234,7 +234,8 @@ export const GET = async (req: NextRequest) => {
             height: '100%',
             width: '100%',
 
-            background: `linear-gradient(37deg, ${bgAccent} 27.82%, ${bgAccentLight} 79.68%, ${bgAccentUltraLight} 100%)`,
+            // background: `linear-gradient(37deg, ${bgAccent} 27.82%, ${bgAccentLight} 79.68%, ${bgAccentUltraLight} 100%)`,
+            background: 'url(https://barrysong4real.cc/public/og_bg.png)',
 
             // fontFamily: 'LXGWWenKai',
             fontFamily: 'Inter, Noto Sans, Inter, "Material Icons"',
@@ -256,9 +257,10 @@ export const GET = async (req: NextRequest) => {
             }}
           >
             <img
-              src={avatar}
+              src={'https://barrysong4real.cc/siteowner.jpg'}
               style={{
                 borderRadius: '50%',
+                objectFit: 'cover',
               }}
               height={128}
               width={128}
@@ -271,7 +273,7 @@ export const GET = async (req: NextRequest) => {
                 fontSize: '2rem',
               }}
             >
-              <h3>{seo.title}</h3>
+              <h3>BarrySong97</h3>
             </span>
           </div>
           <div
@@ -301,7 +303,7 @@ export const GET = async (req: NextRequest) => {
                 fontWeight: 'lighter',
               }}
             >
-              {subtitle}
+              来自BarrySong的博客
             </h2>
           </div>
         </div>
