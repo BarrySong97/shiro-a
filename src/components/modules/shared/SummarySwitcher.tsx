@@ -16,6 +16,8 @@ export const SummarySwitcher: FC<
   }
 > = memo((props) => {
   const { enabled, providers } = appStaticConfig.ai.summary
+  console.log('enabled', enabled, providers)
+
   const { data, summary } = props
   const cid = getCidForBaseModel(data)
 

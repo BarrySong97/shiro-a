@@ -96,6 +96,7 @@ export const generateMetadata = async ({
 
 const PostPage = ({ data }: { data: ModelWithLiked<PostModel> }) => {
   const { id } = data
+
   return (
     <div className="relative w-full min-w-0">
       <AckRead id={id} type="post" />
