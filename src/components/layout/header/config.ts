@@ -2,6 +2,7 @@ import { createElement as h } from 'react'
 import type { ReactNode } from 'react'
 
 import {
+  Fa6SolidBook,
   FaSolidCircle,
   FaSolidCircleNotch,
   FaSolidComments,
@@ -42,9 +43,9 @@ export const headerMenuConfig: IHeaderMenu[] = [
     icon: h(MdiFlask),
     path: '/projects',
   },
-  // {
-  //   title: '友链',
-  //   icon: h(FaSolidUserFriends),
-  //   path: '/friends',
-  // },
+  {
+    title: '小册',
+    icon: h(Fa6SolidBook),
+    path: '/books',
+  },
 ]
